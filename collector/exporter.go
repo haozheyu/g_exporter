@@ -11,7 +11,6 @@ import (
 )
 
 const (
-	// Subsystem(s).
 	exporter = "exporter"
 )
 
@@ -70,7 +69,7 @@ func (e *Exporter) scrape(ctx context.Context, ch chan<- prometheus.Metric) {
 			defer wg.Done()
 			label := "collect." + scraper.Name()
 			scrapeTime := time.Now()
-			if err := scraper.Scrape(ctx, "dc", ch); err != nil {
+			if err := scraper.Scrape(ctx, ch); err != nil {
 				log.Println(err)
 			}
 			ch <- prometheus.MustNewConstMetric(scrapeDurationDesc, prometheus.GaugeValue, time.Since(scrapeTime).Seconds(), label)

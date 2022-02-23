@@ -13,5 +13,5 @@ type Scraper interface {
 	Help() string
 
 	// Scrape collects data from database connection and sends it over channel as prometheus metric.
-	Scrape(ctx context.Context, dc string, ch chan<- prometheus.Metric) error
+	Scrape(ctx context.Context, ch chan<- prometheus.Metric) error
 }

@@ -21,6 +21,7 @@ func main() {
 
 	enabledScrapers := []scrape.Scraper{
 		scrapeImpl.MysqlConnectScraper{},
+        scrapeImpl.RedisExporter{},
 	}
 	handlerFunc := newHandler(collector.NewMetrics(), enabledScrapers)
 	http.Handle("/metrics", promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, handlerFunc))
