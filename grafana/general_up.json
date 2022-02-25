@@ -1,0 +1,764 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": false,
+      "title": "github link",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://github.com/haozheyu/g_exporter.git"
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "description": "采集启动状态",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "general_up",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "general_up",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 4,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_uptime / 60^2 /24)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "运行的天数",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "general_mysql_connect_Threads_running",
+          "interval": "",
+          "legendFormat": "当前链接线程",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "general_mysql_connect_Aborted_connects",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "连接中断",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil (general_mysql_connect_bytesSent / 1024^2)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "发送（m）",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(abs(general_mysql_connect_bytesReceived / 1024^2))",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "收到（m)",
+          "refId": "D"
+        }
+      ],
+      "title": "mysql_链接状态",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil (general_redis_connect_uptime_in_seconds / 60^2 /24)",
+          "interval": "",
+          "legendFormat": "运行的天数",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_redis_connect_used_memory / 1024 /1024)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "used_memory(m)",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_redis_connect_used_cpu_user)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "使用的cpu(毫核)",
+          "refId": "C"
+        }
+      ],
+      "title": "redis up状态",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_comCommit)",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "commit sql counter",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_comDelete)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "delete sql counter",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_comInsert)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "insert sql counter",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_comRollback)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "rollback sql counter",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil (general_mysql_connect_comSelect)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "select sql counter",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil (general_mysql_connect_comUpdate)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "update sql counter",
+          "refId": "F"
+        }
+      ],
+      "title": "mysql sql 执行状态统计",
+      "type": "timeseries"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "percent"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil( general_mysql_connect_innodbBufferPoolReadRequests)",
+          "interval": "",
+          "legendFormat": "innodbBufferPoolReadRequests",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil( general_mysql_connect_innodbBufferPoolWriteRequests)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "innodbBufferPoolWriteRequests",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_innodbPagesCreated)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "innodbPagesCreated",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_innodbPagesRead)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "innodbPagesRead",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_innodbPagesWritten / 1024^2)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "innodbPagesWritten(m)",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_innodbRowsDeleted)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "innodbRowsDeleted",
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_mysql_connect_innodbRowsInserted)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "innodbRowsInserted",
+          "refId": "G"
+        }
+      ],
+      "title": "mysql  innodb status",
+      "type": "timeseries"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "redsi剩余连接数"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_redis_connect_maxclients - general_redis_connect_connected_clients)",
+          "interval": "",
+          "legendFormat": "redsi剩余连接数",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil( general_redis_connect_io_threads_active)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "活动连接数",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_redis_connect_total_net_input_bytes / 1024^2)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "net_input(m)",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_Rjybyfnk"
+          },
+          "exemplar": true,
+          "expr": "ceil(general_redis_connect_total_net_output_bytes / 1000^2)",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "net_output(m)",
+          "refId": "D"
+        }
+      ],
+      "title": "redis 连接状态",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "Asia/Shanghai",
+  "title": "general_up",
+  "uid": "WdwNklB7z",
+  "version": 10,
+  "weekStart": ""
+}
